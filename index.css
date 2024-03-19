@@ -87,7 +87,7 @@ header {
 }
 .slider {
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
@@ -108,6 +108,7 @@ header {
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s ease;
+    margin-top: 5px;
 }
 .sliderNav a:hover {
     background-color: rgba(0, 0, 0, 0.7);
