@@ -17,7 +17,7 @@ void main () {
 
     int choice = menu();
 
-    while(choice != 0) {
+    while(choice) {
         switch(choice) {
             case 0:
                 exit(0);
@@ -25,9 +25,9 @@ void main () {
             case 1:
                 beginsert(&head);
                 display(&head);
-                menu();
                 break;
         }
+        choice = menu();
     }
 }
 
