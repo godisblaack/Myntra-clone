@@ -47,11 +47,14 @@ int menu () {
 }
 
 void display (struct node **head) {
+
     struct node *ptr = *head;
+
     if (ptr == NULL) {
         printf("\nList is empty.");
     } else {
         printf("\nValue in the linked list : ");
+
         while (ptr != NULL) {
             printf("%d ", ptr->data);
             ptr = ptr -> next;
@@ -60,6 +63,7 @@ void display (struct node **head) {
 }
 
  void beginsert (struct node **head) {
+
     int data;
     struct node *newNode = (struct node *) malloc(sizeof(struct node));
     struct node *beg;
@@ -79,6 +83,7 @@ void display (struct node **head) {
 }
 
 void endinsert (struct node **head) {
+
     int data;
     struct node *newNode = (struct node *) malloc(sizeof(struct node));
     struct node *beg;
@@ -93,9 +98,11 @@ void endinsert (struct node **head) {
         *head = newNode;
     } else {
         struct node *lastNode = *head;
+        
         while (lastNode -> next != NULL) {
             lastNode = lastNode -> next;
         }
-        lastNode -> next = newNode;
+        
+    lastNode -> next = newNode;
     }
 }
