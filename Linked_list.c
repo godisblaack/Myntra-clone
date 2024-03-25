@@ -10,6 +10,7 @@ struct node
 int menu();
 void display(struct node **head);
 void beginsert(struct node **head);
+void endinsert (struct node **head);
 
 void main () {
     
@@ -26,6 +27,10 @@ void main () {
                 beginsert(&head);
                 display(&head);
                 break;
+            case 2:
+                endinsert(&head);
+                display(&head);
+                break;
         }
         choice = menu();
     }
@@ -35,7 +40,7 @@ int menu () {
     
     int choice;
     printf("\nMain Menu");
-    printf("\n0.Exit\n1.Insert at the beggining\n");
+    printf("\n0.Exit\n1.Insert at the beggining\n2.Insert at the end\n");
     printf("\nEnter your choice: ");
     scanf("%d", &choice);
     return choice;
@@ -70,5 +75,27 @@ void display (struct node **head) {
     } else {
         newNode -> next = *head;
         *head = newNode;    
+    }
+}
+
+void endinsert (struct node **head) {
+    int data;
+    struct node *newNode = (struct node *) malloc(sizeof(struct node));
+    struct node *beg;
+    
+    printf("\nEnter the data: ");
+    scanf("%d", &data);
+
+    newNode -> data = data;
+    newNode -> next = NULL;
+
+    if(*head == NULL) {
+        *head = newNode;
+    } else {
+        struct node *lastNode = *head;
+        while (lastNode -> next != NULL) {
+            lastNode = lastNode -> next;
+        }
+        lastNode -> next = newNode;
     }
 }
