@@ -31,6 +31,11 @@ void main () {
                 endinsert(&head);
                 display(&head);
                 break;
+            case 3:
+                display(&head);
+                break;
+            default:
+                printf("\nInvalid input\n");
         }
         choice = menu();
     }
@@ -40,7 +45,7 @@ int menu () {
     
     int choice;
     printf("\nMain Menu");
-    printf("\n0.Exit\n1.Insert at the beggining\n2.Insert at the end\n");
+    printf("\n0.Exit\n1.Insert at the beggining\n2.Insert at the end\n3.Display the list\n");
     printf("\nEnter your choice: ");
     scanf("%d", &choice);
     return choice;
@@ -51,7 +56,7 @@ void display (struct node **head) {
     struct node *ptr = *head;
 
     if (ptr == NULL) {
-        printf("\nList is empty.");
+        printf("\nList is empty.\n");
     } else {
         printf("\nValue in the linked list : ");
 
@@ -59,6 +64,8 @@ void display (struct node **head) {
             printf("%d ", ptr->data);
             ptr = ptr -> next;
         }
+        
+        printf("\n");
     }
 }
 
@@ -66,7 +73,6 @@ void display (struct node **head) {
 
     int data;
     struct node *newNode = (struct node *) malloc(sizeof(struct node));
-    struct node *beg;
     
     printf("\nEnter the data: ");
     scanf("%d", &data);
@@ -86,7 +92,6 @@ void endinsert (struct node **head) {
 
     int data;
     struct node *newNode = (struct node *) malloc(sizeof(struct node));
-    struct node *beg;
     
     printf("\nEnter the data: ");
     scanf("%d", &data);
